@@ -30,7 +30,10 @@
     "ytdl-core": "^4.4.5",
     "ytdl-core-discord": "^1.2.5",
     "wtf_wikipedia": "^9.0.0",
-    "wtf-plugin-nsfw": "^0.1.0"
+    "wtf-plugin-nsfw": "^0.1.0",
+    "@nsfw-filter/nsfwjs": "^2.2.0",
+    "@tensorflow/tfjs": "^3.7.0",
+    "@tensorflow/tfjs-node": "^3.7.0"
   },
   "engines": {
     "node": "12.x"

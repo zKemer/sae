@@ -8,7 +8,7 @@ client.queue = new Map()
 
 
 //////////////////////////////////////////////////
-  client.login(ayarlar.token)
+  client.login(process.env.token)
 const chalk = require('chalk')
 const { Util } = require('discord.js');
 const fs = require('fs');

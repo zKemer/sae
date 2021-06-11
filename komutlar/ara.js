@@ -2,20 +2,17 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
   var search = require('youtube-search');
-  
+  return message.channel.send("Bu komut kısa bir süreliğine kapalı kalacaktır.")
   if(!args.join(" ")) return message.channel.send("Youtube araması için bir kelime belirtin.")
   const wtf = require('wtf_wikipedia')
 wtf.extend(require('wtf-plugin-nsfw'))
  
-let doc = await wtf.fetch(args.join(" "))
-let res = doc.nsfw()
-if(res.safe_for_work == false) return message.channel.send("Uygunsuz içerikler bulundu; girdiğiniz kelime aranmayacak.")
   var opts = {
     maxResults: 10,
     key: 'AIzaSyBNv7r7njLNxLGTEglWVKent2hc_RkEMR0'
   };
-  console.log(res)
-  search(args.slice(0).join(" ").toString().trim(), opts, function(err, results) {
+
+  search(args.slice(0).join(" ").toString().trim(), opts, async function(err, results) {
     if(err) return console.log(err);
 
   let pages = [`
@@ -46,8 +43,14 @@ if(res.safe_for_work == false) return message.channel.send("Uygunsuz içerikler 
    `];
 
   let page = 1;
-
-console.dir(results[0])
+const nsfwjs = require("@nsfw-filter/nsfwjs") 
+nsfwjs.load().then(function (model) {
+  model.classify(results[0].thumbnails.default.url).then(function (predictions) {
+    // Classify the image
+    console.log('Predictions: ', predictions)
+  })
+})
+    
     const embed = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setFooter(`Sayfa ${page} / ${pages.length}`)
