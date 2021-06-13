@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "hello-express",
   "version": "0.0.1",
   "description": "",
@@ -12,7 +12,7 @@
     "chalk": "^4.1.0",
     "common-tags": "^1.8.0",
     "croxydb": "0.0.7",
-    "discord.js": "^12.4.1",
+    "discord.js": "^12.5.3",
     "express": "^4.17.1",
     "fs": "0.0.2",
     "jimp": "^0.16.1",
